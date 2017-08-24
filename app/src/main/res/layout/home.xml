@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F0F0F0"
+            android:id="@+id/homel"
+            android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/layout_top"
+                    android:gravity="center">
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="12dp"
+                            android:layout_gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="60dp"
+                                    android:layout_height="30dp"
+                                    android:orientation="vertical"
+                                    android:id="@+id/title_bar_left_menu"
+                                    android:layout_gravity="center"
+                                    android:gravity="center">
+                                        <Button
+                                            android:layout_width="14dp"
+                                            android:layout_height="16dp"
+                                            android:background="@drawable/menu"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"/>
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Book A Shaired Cab"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/color"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_gravity="center"/>
+
+
+                        </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:id="@+id/title_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/bottomBar"
+                    android:text="App"
+                    android:textSize="11dp"
+
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="10dp"/>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:padding="5dp"
+                    android:id="@+id/city_l"
+                    android:layout_marginBottom="10dp">
+
+
+                        <TextView
+                            android:id="@+id/city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/bottomBar"
+                            android:text="Vadodara"
+                            android:textColor="@color/color"
+                            android:hint="Vadodara"
+                            android:textColorHint="@color/colorgray"
+                            android:textSize="14dp"
+                            android:layout_marginLeft="16dp"/>
+
+
+                        <ImageView
+                            android:id="@+id/downarrow"
+                            android:layout_width="15dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_download"
+                            android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/pic_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SELECT A DESTINATION"
+                    android:textColor="@color/colorgray"
+                    android:hint="Vadodara"
+                    android:textColorHint="@color/colorgray"
+                    android:textSize="12dp"
+
+                    android:layout_marginLeft="16dp"/>
+
+                <LinearLayout
+                    android:id="@+id/view_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:background="#ffffff">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="SELECT PICKUP CITY"
+                            android:textSize="11dp"
+                            android:id="@+id/select_pic"
+                            android:layout_marginLeft="16dp"
+                            android:textColor="@color/gr"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:visibility="gone"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.25dp"
+                            android:background="@color/colorPrimaryDark"/>
+
+                        <!-- Editext for Search -->
+                        <EditText android:id="@+id/inputSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Search for a city.."
+                            android:textSize="14dp"
+                            android:textColor="@color/color"
+                            android:inputType="textVisiblePassword"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#ffffff"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.025dp"
+                            android:background="#cccccc"/>
+
+
+                        <!-- List View -->
+                        <ListView
+                            android:id="@+id/list_view"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:divider="#00000000"
+                            android:layout_marginBottom="68dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:scrollbars="none"
+                            android:visibility="gone"
+                            android:background="#ffffff"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/custom_listview_example"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/border"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="70dp"
+                    android:divider="#00000000">
+
+
+                </ListView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="70dp"
+                    android:visibility="gone"
+                    android:id="@+id/no_cab">
+
+                        <com.onesidedcabs.custom_font.MyTextViewlato
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No Cab Available"
+                            android:textSize="14dp"
+                            android:textColor="#4d4d4d"
+                            android:gravity="center"
+                            android:layout_gravity="center"/>
+
+                </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <com.roughike.bottombar.BottomBar
+            android:layout_alignBottom="@id/homel"
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            app:bb_tabXmlResource="@xml/bottombar_tabs_color_changing"
+
+            app:bb_behavior="shifting|underNavbar"
+            app:bb_inActiveTabColor="@color/colorblack"
+            app:bb_activeTabColor="@color/colorblack"
+            app:bb_titleTypeFace="fonts/open-sans.regular.ttf"
+            app:bb_titleTextAppearance="@style/CustomTitleTextAppearanceb"/>
+
+
+
+
+</RelativeLayout>
+

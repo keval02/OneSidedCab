@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/toolBar"
+    app:theme="@style/ToolbarStyle">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="-10dp"
+            android:padding="3dp"
+            android:src="@drawable/backimagefifty"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:layout_weight="2"
+            android:gravity="start|center"
+            android:text="@string/app_name"
+            android:textColor="@color/colortitle"
+            android:textSize="20sp"/>
+
+
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Done"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:layout_marginRight="10dp"
+            android:background="@color/toolBar"
+            android:textColor="@color/colortitle"/>
+
+
+
+
+        <ImageView
+            android:id="@+id/img_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="3.5"
+            android:padding="5dp"
+            android:src="@drawable/iconfif"
+            android:visibility="gone"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+
+    <tab
+        id="@+id/tab_favorites"
+        icon="@drawable/ic_path"
+        title="One Side"
+        titlesize="8sp"
+        barColorWhenSelected="#B5D431" />
+    <tab
+        id="@+id/tab_nearby"
+        icon="@drawable/ic_loc"
+        title="Hourly Cab"
+        titlesize="8sp"
+        barColorWhenSelected="#B5D431" />
+    <tab
+        id="@+id/tab_friends"
+        icon="@drawable/ic_return"
+        title="Outstation"
+        titlesize="8sp"
+        barColorWhenSelected="#B5D431" />
+
+
+
+</tabs>

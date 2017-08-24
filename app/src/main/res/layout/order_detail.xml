@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/back_a"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/back_a"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/immg"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:src="@drawable/suv"
+        android:layout_gravity="center"/>
+
+</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp">
+
+        <com.onesidedcabs.custom_font.MyTextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Booking Confirmed!"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="@color/color"/>
+
+
+        <com.onesidedcabs.custom_font.MyTextViewbold
+            android:id="@+id/price_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@color/color"
+            android:layout_marginTop="5dp"/>
+
+
+        <com.onesidedcabs.custom_font.MyTextView
+            android:id="@+id/ride"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="@color/color"
+            android:layout_marginTop="5dp"/>
+
+
+        <com.onesidedcabs.custom_font.MyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@color/color"
+            android:layout_marginTop="5dp"/>
+
+
+        <com.onesidedcabs.custom_font.MyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" You will receive driver and cab details \n 2 hour before the pick-up time"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@color/color"
+            android:layout_marginTop="5dp"/>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/i_name"
+        android:layout_gravity="center"
+        android:textColorHint="@color/textt"
+        android:textColor="@color/textt"
+        android:backgroundTint="@color/textt"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:layout_gravity="center"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="PASSENGER NAME"
+            android:textSize="@dimen/textsub_size"
+            android:enabled="false"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:inputType="number"
+            android:background="#ffffff"
+            android:textColorHint="@color/textt"
+            android:textColor="@color/textt"/>
+
+
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.025dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/i_mobileno"
+            android:layout_gravity="center"
+            android:textColorHint="#4d4d4d"
+            android:backgroundTint="#4d4d4d"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_gravity="center"
+                android:id="@+id/mobileno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="MOBILE NO."
+                android:textSize="@dimen/textsub_size"
+                android:enabled="false"
+                android:textColor="@color/textt"
+                android:singleLine="true"
+                android:inputType="number"
+                android:background="#ffffff"
+                android:paddingTop="10dp"
+                android:textColorHint="@color/blacktext"/>
+
+
+
+
+        </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.025dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"/>
+
+</LinearLayout>
+</LinearLayout>
+
+
+
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/i_picdate"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/textt"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                   >
+
+                    <EditText
+                        android:layout_gravity="center"
+                        android:id="@+id/picdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="DATE &amp; TIME PICKUP"
+                        android:textSize="@dimen/textsub_size"
+                        android:enabled="false"
+                        android:singleLine="true"
+                        android:paddingTop="10dp"
+                        android:inputType="number"
+                        android:background="#ffffff"
+                        android:textColorHint="@color/textt"
+                        android:textColor="@color/textt"/>
+
+
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.025dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/i_pic"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <EditText
+                    android:layout_gravity="center"
+                    android:id="@+id/pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="PICKUP FROM "
+                    android:textSize="@dimen/textsub_size"
+                    android:textColor="@color/textt"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:background="#ffffff"
+                    android:enabled="false"
+                    android:paddingTop="10dp"
+                    android:textColorHint="@color/blacktext"/>
+
+
+
+
+            </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/gpss"
+                        android:layout_marginRight="20dp"
+                        android:visibility="invisible"/>
+                    </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.025dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"/>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:id="@+id/i_drop"
+                        android:layout_gravity="center"
+
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:layout_gravity="center"
+                            android:id="@+id/drop"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="DROP OFF AT "
+                            android:textSize="@dimen/textsub_size"
+                            android:textColor="@color/textt"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:background="#ffffff"
+                            android:enabled="false"
+                            android:paddingTop="10dp"
+                            android:textColorHint="@color/blacktext"/>
+
+
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/gpss"
+                        android:layout_marginRight="20dp"
+                        android:visibility="invisible"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.025dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"/>
+
+
+            </LinearLayout>
+
+
+
+            <com.onesidedcabs.custom_font.MyTextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="14dp"
+                android:textColor="@color/textt"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.onesidedcabs.custom_font.MyTextViewbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/color"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"/>
+
+
+            <com.onesidedcabs.custom_font.MyTextViewbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*Toll-Tax and Parking pay directly to  are not included in Bill"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="@color/color"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</android.support.v7.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/back1"
+            android:elevation="5dp"
+            android:visibility="visible"
+            android:id="@+id/Cancel">
+
+
+            <com.onesidedcabs.custom_font.MyTextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:id="@+id/cancelID"
+                android:textSize="14dp"
+                android:textColor="#4d4d4d"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:paddingLeft="22dp"
+                android:paddingRight="22dp"
+                android:visibility="visible"
+                android:gravity="center"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>
+
+
+    </LinearLayout>

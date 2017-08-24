@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/bgg"
+                android:layout_gravity="center"
+                android:gravity="center">
+    <TextView
+        android:id="@+id/ddd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text=""
+        android:textSize="12dp"
+        android:textColor="#000000"/>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FROM"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#C9C9C9"
+                android:layout_marginTop="12dp"     />
+
+            <TextView
+                android:id="@+id/from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_gravity="center_vertical"
+                android:textSize="10dp"
+                android:textColor="#4D4D4D"
+                android:layout_marginTop="5dp"/>
+
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp">
+
+        <LinearLayout
+            android:id="@+id/cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/back1"
+            android:elevation="5dp"
+            android:visibility="gone"
+            android:gravity="center"
+
+            >
+
+
+            <com.onesidedcabs.custom_font.MyTextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textSize="12dp"
+                android:textColor="#4d4d4d"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:gravity="center"
+                />
+
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="right"
+    android:gravity="center"
+    android:layout_marginRight="20dp">
+
+    <TextView
+        android:id="@+id/dd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:text=""
+        android:textSize="10dp"
+        android:textColor="@color/colorgray"/>
+
+
+</LinearLayout>
+
+
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.025dp"
+        android:layout_marginTop="5dp"
+        android:background="#cccccc"/>
+</LinearLayout>
+
+
+</LinearLayout>

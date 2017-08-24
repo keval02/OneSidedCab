@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B5D431</color>
+    <color name="colorPrimaryDark">#000000</color>
+
+    <color name="colorAccent">#000000</color>
+    <color name="colorblack">#000000</color>
+    <color name="color">#767578</color>
+    <color name="colorgray">#b3b3b3</color>
+    <color name="g">#717578</color>
+    <color name="gr">#9FA0A1</color>
+    <color name="grr">#909496</color>
+
+    <color name="textt">#4d4d4d</color>
+
+    <color name="bgbac">#F0F0F0</color>
+
+    <color name="gray_colour">#509ba4ab</color>
+
+
+    <color name="colortext">#b0afaf</color>
+    <color name="colorsubtex">#585858</color>
+    <color name="whittext">#ffffff</color>
+    <color name="blacktext">#585858</color>
+
+    <color name="devider">#99dad8d8</color>
+    <color name="carttex">#4c71f5</color>
+    <color name="textback">#ffffff</color>
+    <color name="toolcolour">#49485a</color>
+
+
+    <color name="colortitle">#000</color>
+
+    <color name="colorwhite">#fff</color>
+
+    <color name="colorbackground">#f2f3f4</color>
+    <color name="ratingbar">#B5D431</color>
+
+    <color name="yello">#B5D431</color>
+
+    <color name="ye">#B5D431</color>
+
+    <color name="White">#ffffff</color>
+
+
+
+    <color name="toolBar">#e0e0e0</color>
+
+</resources>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:id="@+id/sv_left_menu"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:scrollbars="none"
+
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:id="@+id/layout_left_menu"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/userl"/>
+
+
+            <com.onesidedcabs.custom_font.MyTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:text=""
+                android:textSize="14dp"
+                android:layout_marginTop="15dp"/>
+
+            <com.onesidedcabs.custom_font.MyTextViewsanbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book A Cab"
+                android:id="@+id/book"
+                android:textSize="16dp"
+                android:textColor="@color/textt"
+                android:layout_marginTop="20dp"/>
+
+
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="0.55dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
+
+            <com.onesidedcabs.custom_font.MyTextViewsanbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Rides"
+                android:id="@+id/click"
+                android:textSize="16dp"
+                android:textColor="@color/textt"/>
+
+
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="0.55dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
+
+
+
+            <com.onesidedcabs.custom_font.MyTextViewsanbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:id="@+id/profile"
+                android:textSize="16dp"
+                android:textColor="@color/textt"/>
+
+
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="0.55dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
+
+
+
+            <com.onesidedcabs.custom_font.MyTextViewsanbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Help Line"
+                android:id="@+id/help"
+                android:textSize="16dp"
+                android:textColor="@color/textt"/>
+
+
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="0.55dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
+
+
+
+            <com.onesidedcabs.custom_font.MyTextViewsanbold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feedback"
+                android:visibility="gone"
+                android:id="@+id/feedback"
+                android:textSize="16dp"
+                android:textColor="@color/textt"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

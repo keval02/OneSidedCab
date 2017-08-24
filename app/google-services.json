@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1059100082381",
+    "firebase_url": "https://one-sided-cab.firebaseio.com",
+    "project_id": "one-sided-cab",
+    "storage_bucket": "one-sided-cab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059100082381:android:e490d8f3dcbd9438",
+        "android_client_info": {
+          "package_name": "com.onesidedcabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059100082381-9oa6p3vidvtbh37fn8u3jott1ig2bdbc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onesidedcabs",
+            "certificate_hash": "b5cebe6ba7fd34d755b5dd7fa1f139f5d18e91eb"
+          }
+        },
+        {
+          "client_id": "1059100082381-kcmp4mhpdv6sd15bmgn474oqv22pu7r0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjxEQZiFlXCdhH_9rQOG1mnOwUeJEL6sc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059100082381-kcmp4mhpdv6sd15bmgn474oqv22pu7r0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

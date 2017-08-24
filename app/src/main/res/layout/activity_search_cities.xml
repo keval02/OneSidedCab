@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.onesidedcabs.SearchCities">
+
+
+    <include layout="@layout/custom_toolbar"
+        android:id="@+id/toolbar"
+        android:visibility="gone"/>
+
+
+
+
+    <AutoCompleteTextView
+        android:id="@+id/autoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/edittextborder"
+        android:focusableInTouchMode="true"
+        android:hint="Search By Company Name"
+        android:inputType="textCapWords"
+        android:padding="5dp"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:layout_margin="10dp"
+        android:textColorHint="#000000"
+        android:textSize="12sp"
+        android:visibility="gone"/>
+
+</LinearLayout>

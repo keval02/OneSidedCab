@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">OneSidedCab</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="place_details">
+    <![CDATA[
+        <b>%1$s</b>
+        <br/>
+        <i>Place Id: %2$s</i>
+        <br/>
+        Address: %3$s
+        <br/>
+        Phone: %4$s
+        <br/>
+        Website: %5$s
+    ]]>
+    </string>
+
+
+
+    <string name="que1">1) How comfortable are you to use our app while booking?</string>
+    <string name="que2">2) Would driver came to pickup you on time?</string>
+    <string name="que3">3) How satisfied are you with drivers behaviour?</string>
+    <string name="que4">4) How satisfied are you with our customer support?</string>
+    <string name="que5">5) Overall , how satisfied are you with our services?</string>
+
+
+    <string name="good">Good</string>
+    <string name="bad">Bad</string>
+    <string name="excellent">Excellent</string>
+
+
+
+</resources>

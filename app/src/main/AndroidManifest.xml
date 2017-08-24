@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.onesidedcabs">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/MyLogin">
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Otp"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Order"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".My_rides"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Confirm"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".User_Profile"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ccavenuenonseamless.WebViewActivity"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ccavenuenonseamless.StatusActivity"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MyOrderdetail"
+            android:theme="@style/MyLogin"
+            android:screenOrientation="portrait"/>
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GetCurrentAddress"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SearchCities"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GetDropAddress"
+            android:screenOrientation="portrait"/>
+
+        <service android:name=".MyAndroidFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyAndroidFirebaseInstanceIDService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".NotificationDetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FeedbackFormActivity"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>

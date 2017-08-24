@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.onesidedcabs.FeedbackFormActivity">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Feedback Form"
+            android:textColor="@color/colortitle"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/que1"
+            android:textColor="@color/colortitle"/>
+
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_que1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rb_good1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bad"
+                android:textSize="14sp"
+
+                android:theme="@style/MyRadioButton1" />
+
+
+            <RadioButton
+                android:id="@+id/rb_better1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/good"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"
+                />
+
+
+            <RadioButton
+                android:id="@+id/rb_excellent1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/excellent"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/que2"
+            android:textColor="@color/colortitle"
+            />
+
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_que2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rb_good2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bad"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1" />
+
+
+            <RadioButton
+                android:id="@+id/rb_better2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/good"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1" />
+
+
+            <RadioButton
+                android:id="@+id/rb_excellent2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/excellent"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/que3"
+            android:textColor="@color/colortitle"/>
+
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_que3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rb_good3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bad"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1" />
+
+
+            <RadioButton
+                android:id="@+id/rb_better3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/good"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+            <RadioButton
+                android:id="@+id/rb_excellent3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/excellent"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/colortitle"
+            android:text="@string/que4"/>
+
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_que4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rb_good4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bad"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1" />
+
+
+            <RadioButton
+                android:id="@+id/rb_better4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/good"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+            <RadioButton
+                android:id="@+id/rb_excellent4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/excellent"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/colortitle"
+            android:text="@string/que5"/>
+
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/rg_que5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rb_good5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/bad"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1" />
+
+
+            <RadioButton
+                android:id="@+id/rb_better5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/good"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"/>
+
+
+            <RadioButton
+                android:id="@+id/rb_excellent5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/excellent"
+                android:textSize="14sp"
+                android:theme="@style/MyRadioButton1"
+                />
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/back12"
+        android:text="Submit"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

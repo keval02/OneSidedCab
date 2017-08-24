@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.onesidedcabs"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 14
+        versionName "0.14"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/**'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        preDexLibraries false
+        javaMaxHeapSize "4G" // 2g should be also OK
+    }
+    repositories {
+        maven { url "https://s3.amazonaws.com/repo.commonsware.com" }
+
+        maven { url "https://jitpack.io" }
+
+    }
+
+}
+
+dependencies {
+    //  compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/httpmime-4.1-beta1.jar')
+    /*compile 'org.apache.httpcomponents:httpclient-cache:4.2.5'
+    compile 'org.apache.httpcomponents:httpcore:4.2.4'
+    compile 'org.apache.commons:commons-lang3:3.1'
+    compile 'com.android.support:multidex:1.0.1'*/
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:cardview-v7:25.0.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'com.mxn.soul:flowingdrawer-core:2.0.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.roughike:bottom-bar:2.2.0'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.google.android.gms:play-services-maps:10.2.6'
+    compile 'com.google.android.gms:play-services-location:10.2.6'
+    compile 'com.google.android.gms:play-services:10.2.6'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    compile 'commons-logging:commons-logging:1.1.2'
+    testCompile 'junit:junit:4.12'
+}
+apply plugin: 'com.google.gms.google-services'
+
