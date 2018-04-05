@@ -94,6 +94,8 @@ public class Login extends AppCompatActivity {
 
         Log.e("final" , "-=>");
 
+
+
         String log_id = PrefUtils.getuID(Login.this);
         if (log_id.equalsIgnoreCase("a")) {
 
