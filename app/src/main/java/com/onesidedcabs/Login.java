@@ -92,7 +92,7 @@ public class Login extends AppCompatActivity {
         isMdevice = isMarshmallowPlusDevice();
         pstatus = isPermissionRequestRequired(Login.this, perms, code);
 
-        Log.e("final" , "-=>");
+        Log.e("final" , "-==>");
 
 
 
