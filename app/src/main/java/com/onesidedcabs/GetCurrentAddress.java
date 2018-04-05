@@ -88,6 +88,7 @@ public class GetCurrentAddress extends AppCompatActivity implements GoogleApiCli
     protected static final int REQUEST_CHECK_SETTINGS = 0x1;
 
     private ProgressDialog loading;
+    private Custom_ProgressDialog loadingView;
 
     Circle myCircle;
 
@@ -539,10 +540,14 @@ public class GetCurrentAddress extends AppCompatActivity implements GoogleApiCli
             super.onPreExecute();
             try {
 
-                loading = new ProgressDialog(GetCurrentAddress.this);
-                loading.setMessage("Please Wait Loading data ....");
-                loading.show();
-                loading.setCancelable(false);
+                loadingView = new Custom_ProgressDialog(GetCurrentAddress.this, "");
+                loadingView.setCancelable(false);
+                loadingView.show();
+
+//                loading = new ProgressDialog(GetCurrentAddress.this);
+//                loading.setMessage("Please Wait Loading data ....");
+//                loading.show();
+//                loading.setCancelable(false);
             } catch (Exception e) {
 
 
@@ -560,7 +565,7 @@ public class GetCurrentAddress extends AppCompatActivity implements GoogleApiCli
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            loading.dismiss();
+            loadingView.dismiss();
 
             try{
 

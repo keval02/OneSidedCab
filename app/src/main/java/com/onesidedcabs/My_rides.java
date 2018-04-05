@@ -49,6 +49,7 @@ public class My_rides extends AppCompatActivity {
     JSONObject jObj;
     String status;
     private ProgressDialog loading;
+    private Custom_ProgressDialog loadingView;
     TravalListAdapter travalListAdapter;
     ListView listview;
     Typeface custom_font,custom_fontb,custom_fontl;
@@ -120,10 +121,13 @@ TextView title;
         RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RetrfitInterface.url).build();
 
         try {
-            loading = new ProgressDialog(My_rides.this);
-            loading.setMessage("Please Wait Loading data ....");
-            loading.show();
-            loading.setCancelable(false);
+            loadingView = new Custom_ProgressDialog(My_rides.this, "");
+            loadingView.setCancelable(false);
+            loadingView.show();
+//            loading = new ProgressDialog(My_rides.this);
+//            loading.setMessage("Please Wait Loading data ....");
+//            loading.show();
+//            loading.setCancelable(false);
 
         } catch (Exception e) {
 
@@ -170,7 +174,7 @@ TextView title;
                 }
 
 
-                loading.dismiss();
+                loadingView.dismiss();
 
                 if(status.equals("1")) {
 
@@ -202,7 +206,7 @@ TextView title;
 
                 String merror = error.toString();
                 Log.d("error", merror);
-                loading.dismiss();
+                loadingView.dismiss();
             }
         });
 
@@ -369,10 +373,13 @@ TextView title;
         RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RetrfitInterface.url).build();
 
         try {
-            loading = new ProgressDialog(My_rides.this);
-            loading.setMessage("Please Wait Loading data ....");
-            loading.show();
-            loading.setCancelable(false);
+            loadingView = new Custom_ProgressDialog(My_rides.this, "");
+            loadingView.setCancelable(false);
+            loadingView.show();
+//            loading = new ProgressDialog(My_rides.this);
+//            loading.setMessage("Please Wait Loading data ....");
+//            loading.show();
+//            loading.setCancelable(false);
 
         } catch (Exception e) {
 
@@ -415,7 +422,7 @@ TextView title;
                 }
 
 
-                loading.dismiss();
+                loadingView.dismiss();
 
                 if(status.equals("1")) {
 
@@ -440,7 +447,7 @@ TextView title;
 
                 String merror = error.toString();
                 Log.d("error", merror);
-                loading.dismiss();
+                loadingView.dismiss();
             }
         });
 

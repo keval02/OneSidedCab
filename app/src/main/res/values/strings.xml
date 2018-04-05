@@ -28,6 +28,8 @@
     <string name="bad">Bad</string>
     <string name="excellent">Excellent</string>
 
+    <string name="rs">\u20B9</string>
+
 
 
 </resources>

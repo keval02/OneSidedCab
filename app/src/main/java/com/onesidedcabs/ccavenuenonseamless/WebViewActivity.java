@@ -50,7 +50,6 @@ public class WebViewActivity extends Activity {
 		super.onCreate(bundle);
 		setContentView(R.layout.activity_webview);
 		amount = getIntent().getStringExtra("amount");
-		
 		// Calling async task to get display content
 		new RenderView().execute();
 	}
@@ -105,6 +104,8 @@ public class WebViewActivity extends Activity {
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
+
+			Log.e("RESULT-->",""+result);
 
 			class MyJavaScriptInterface
 			{

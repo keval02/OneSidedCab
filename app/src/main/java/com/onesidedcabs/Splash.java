@@ -9,9 +9,6 @@ import com.onesidedcabs.helper.PrefUtils;
 
 
 public class Splash extends AppCompatActivity {
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +16,6 @@ public class Splash extends AppCompatActivity {
 
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
 
         Thread background = new Thread() {
             public void run() {

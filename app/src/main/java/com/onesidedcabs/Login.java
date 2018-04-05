@@ -69,6 +69,7 @@ public class Login extends AppCompatActivity {
     JSONObject jObj;
     String status;
     private ProgressDialog loading;
+    private Custom_ProgressDialog loadingView;
 
     TextView login;
     EditText email, mobileno, name;
@@ -90,6 +91,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
         isMdevice = isMarshmallowPlusDevice();
         pstatus = isPermissionRequestRequired(Login.this, perms, code);
+
+        Log.e("final" , "-=>");
 
         String log_id = PrefUtils.getuID(Login.this);
         if (log_id.equalsIgnoreCase("a")) {
@@ -198,10 +201,13 @@ public class Login extends AppCompatActivity {
         RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RetrfitInterface.url).build();
 
         try {
-            loading = new ProgressDialog(Login.this);
-            loading.setMessage("Please Wait Loading data ....");
-            loading.show();
-            loading.setCancelable(false);
+            loadingView = new Custom_ProgressDialog(Login.this, "");
+            loadingView.setCancelable(false);
+            loadingView.show();
+//            loading = new ProgressDialog(Login.this);
+//            loading.setMessage("Please Wait Loading data ....");
+//            loading.show();
+//            loading.setCancelable(false);
 
         } catch (Exception e) {
 
@@ -247,7 +253,7 @@ public class Login extends AppCompatActivity {
 
 
 
-                    loading.dismiss();
+                    loadingView.dismiss();
 
                     if (status.equals("1")) {
 
@@ -301,7 +307,7 @@ public class Login extends AppCompatActivity {
 
                 String merror = error.toString();
                 Log.d("error", merror);
-                loading.dismiss();
+                loadingView.dismiss();
             }
         });
 

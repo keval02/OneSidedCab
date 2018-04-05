@@ -27,6 +27,7 @@ import java.util.List;
 public class FeedbackFormActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    Custom_ProgressDialog loadingView;
 
     RadioGroup rg_que1, rg_que2, rg_que3, rg_que4, rg_que5;
 
@@ -292,10 +293,13 @@ public class FeedbackFormActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             try {
-                loading = new ProgressDialog(FeedbackFormActivity.this);
-                loading.setMessage("Please Wait Loading data ....");
-                loading.show();
-                loading.setCancelable(false);
+                loadingView = new Custom_ProgressDialog(FeedbackFormActivity.this, "");
+                loadingView.setCancelable(false);
+                loadingView.show();
+//                loading = new ProgressDialog(FeedbackFormActivity.this);
+//                loading.setMessage("Please Wait Loading data ....");
+//                loading.show();
+//                loading.setCancelable(false);
 
 
             } catch (Exception e) {
@@ -337,7 +341,7 @@ public class FeedbackFormActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            loading.dismiss();
+            loadingView.dismiss();
 
 
             try {

@@ -1,5 +1,10 @@
 package com.onesidedcabs.helper;
 
+import android.telecom.Call;
+
+import com.onesidedcabs.CarTypeResponse;
+import com.onesidedcabs.GlobalFile;
+
 import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Field;
@@ -53,6 +58,12 @@ public interface RetrfitInterface {
     @FormUrlEncoded
     @POST("/deletecustomerorder.php")
     void deleteOrder(@Field("oid") String oid, @Field("key") String key, @Field("userid") String userId , Callback<Response> cb);
+
+
+    @FormUrlEncoded
+    @POST("/cartype.php")
+    void carType(Callback<Response> cb);
+
 
 //
 //

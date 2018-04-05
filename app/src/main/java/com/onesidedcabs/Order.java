@@ -54,10 +54,15 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.gms.location.places.AutocompleteFilter;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 import com.onesidedcabs.ccavenuenonseamless.WebViewActivity;
+import com.onesidedcabs.custom_font.MyRadioButton;
 import com.onesidedcabs.helper.PrefUtils;
 import com.onesidedcabs.helper.RetrfitInterface;
 
@@ -123,6 +128,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
     String result = "";
     String status = "";
     private ProgressDialog loading;
+    private Custom_ProgressDialog loadingView;
     double amount;
     ImageView back_a;
     String f_name, f_mobileno, f_picdate, f_pictime, f_pic, f_drop;
@@ -136,9 +142,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
     static final int DATE_PICKER_ID = 1111;
 
-
     AppPrefs prefs;
-
 
     String date = "", time = "", pickAdd = "", dropAdd = "";
 
@@ -146,7 +150,8 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
     String tollTax = "";
 
-
+    ImageView pic_image,drop_image;
+    private static final int REQUEST_CODE_AUTOCOMPLETE = 1;
 
 
     @Override
@@ -155,12 +160,9 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         setContentView(R.layout.order);
 
         fetchIDs();
-
-
     }
 
     private void fetchIDs() {
-
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
         prefs = new AppPrefs(getApplicationContext());
@@ -215,7 +217,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         ride = (TextView) findViewById(R.id.ride);
 
 
-        price.setText("Rs. " + PrefUtils.getd_price1(Order.this));
+        price.setText(String.valueOf("\u20B9  "+PrefUtils.getd_price1(Order.this)));
         ride.setText(PrefUtils.getCity_name(Order.this) + " to " + PrefUtils.getend_poi(Order.this));
 
 
@@ -245,12 +247,12 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         if(finalTollTax.equals(0.0)){
 
 
-            service.setText(" + GST rate (5.0 %) : Rs. " + res);
+            service.setText(" + GST rate (5.0 %) : \u20B9" + res);
 
         }else {
 
 
-            service.setText(" + GST rate (5.0 %) : Rs. " + res + "\n" + " + Toll tax : Rs. " + PrefUtils.gettollPrice(Order.this));
+            service.setText(String.valueOf(" + GST rate (5.0 %) : \u20B9 " + res + "\n" + " + Toll tax : \u20B9 " + PrefUtils.gettollPrice(Order.this)));
 
 
         }
@@ -261,10 +263,22 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         name = (EditText) findViewById(R.id.name);
         name.setTypeface(custom_font);
         name.setText(PrefUtils.getUser(Order.this).getUser().get(0).getName());
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                name.setCursorVisible(true);
+            }
+        });
 
         mobileno = (EditText) findViewById(R.id.mobileno);
         mobileno.setTypeface(custom_font);
         mobileno.setText(PrefUtils.getUser(Order.this).getUser().get(0).getPhone());
+        mobileno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mobileno.setCursorVisible(true);
+            }
+        });
 
         picdate = (EditText) findViewById(R.id.picdate);
         picdate.setTypeface(custom_font);
@@ -304,6 +318,9 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         pic_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                name.setCursorVisible(false);
+                mobileno.setCursorVisible(false);
 
                 cal = Calendar.getInstance();
                 day = cal.get(Calendar.DAY_OF_MONTH);
@@ -377,9 +394,11 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         pic_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                name.setCursorVisible(false);
+                mobileno.setCursorVisible(false);
 
                 TimePicker mTimePicker = new TimePicker();
+                DateFormat.is24HourFormat(getApplicationContext());
                 mTimePicker.show(getFragmentManager(), "Select time");
 
 
@@ -387,9 +406,96 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
         });
 
 
+
         pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String key = String.valueOf(R.string.google_maps_key);
+
+                Log.e("DebugKey" ,""+ key);
+                prefs.setFromPlaced(true);
+
+                openAutocompleteActivity();
+
+//                name.setCursorVisible(false);
+//                mobileno.setCursorVisible(false);
+//
+//                int off = 0;
+//                try {
+//                    off = Settings.Secure.getInt(getContentResolver(), Settings.Secure.LOCATION_MODE);
+//                } catch (Settings.SettingNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//                if (off == 0) {
+//                    displayLocationSettingRequest(getApplicationContext());
+//                } else {
+//
+//
+//                    date = picdate.getText().toString().trim();
+//                    time = pictime.getText().toString().trim();
+//                    pickAdd = pic.getText().toString().trim();
+//                    dropAdd = drop.getText().toString().trim();
+//
+//
+//                    Intent intent = new Intent(Order.this, GetCurrentAddress.class);
+//                    intent.putExtra("date", date);
+//                    intent.putExtra("time", time);
+//                    intent.putExtra("pickAdd", pickAdd);
+//                    intent.putExtra("dropAdd", dropAdd);
+//                    intent.putExtra("Lat", pickLocationLattitude);
+//                    intent.putExtra("Long", pickLocationLongitude);
+//
+//
+//                    prefs.setPickupfrom(true);
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                }
+            }
+        });
+
+
+        drop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.setToPlaced(true);
+                openAutocompleteActivity();
+//                name.setCursorVisible(false);
+//                mobileno.setCursorVisible(false);
+//
+//
+//                date = picdate.getText().toString().trim();
+//                time = pictime.getText().toString().trim();
+//                pickAdd = pic.getText().toString().trim();
+//                dropAdd = drop.getText().toString().trim();
+//
+//
+//                Intent intent = new Intent(Order.this, GetCurrentAddress.class);
+//
+//                intent.putExtra("date", date);
+//                intent.putExtra("time", time);
+//                intent.putExtra("pickAdd", pickAdd);
+//                intent.putExtra("dropAdd", dropAdd);
+//                intent.putExtra("Lat", dropedLocationLattitude);
+//                intent.putExtra("Long", dropedLocationLongitude);
+//
+//                prefs.setDropat(true);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+
+
+            }
+        });
+
+
+        pic_image=(ImageView)findViewById(R.id.pic_image);
+        drop_image=(ImageView)findViewById(R.id.drop_image);
+
+        pic_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                name.setCursorVisible(false);
+                mobileno.setCursorVisible(false);
 
                 int off = 0;
                 try {
@@ -399,7 +505,9 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                 }
                 if (off == 0) {
                     displayLocationSettingRequest(getApplicationContext());
-                } else {
+                }
+//
+// else {
 
 
                     date = picdate.getText().toString().trim();
@@ -413,21 +521,23 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                     intent.putExtra("time", time);
                     intent.putExtra("pickAdd", pickAdd);
                     intent.putExtra("dropAdd", dropAdd);
-                    intent.putExtra("Lat", currentLatitude);
-                    intent.putExtra("Long", currentLongitude);
+                    intent.putExtra("Lat", pickLocationLattitude);
+                    intent.putExtra("Long", pickLocationLongitude);
 
 
                     prefs.setPickupfrom(true);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-                }
+//                }
             }
         });
 
 
-        drop.setOnClickListener(new View.OnClickListener() {
+        drop_image.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                name.setCursorVisible(false);
+                mobileno.setCursorVisible(false);
 
 
                 date = picdate.getText().toString().trim();
@@ -448,8 +558,6 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                 prefs.setDropat(true);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-
-
             }
         });
 
@@ -549,7 +657,6 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
     }
 
-
     public static class TimePicker extends android.app.DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
         @Override
@@ -571,9 +678,11 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
             final Calendar c = Calendar.getInstance();
             int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minutecurrent = c.get(Calendar.MINUTE);
+            Log.e("SEL MINUTE",""+minute);
+            Log.e("MINITE ",""+minutecurrent);
+
             hour = hour + 2;
-
-
 
 
             Date date = new Date();
@@ -584,12 +693,25 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
             if (currentDate.equalsIgnoreCase(getDate) || getDate.isEmpty()) {
 
-                if (hourOfDay < hour) {
+                if ((hourOfDay < hour) || (hour==hourOfDay && minute<minutecurrent)) {
+
+                    Log.e("SEL MINUTE-----",""+minute);
+                    Log.e("MINITE------",""+minutecurrent);
+
+//                    if(minute < minutecurrent)
+//                    {
+//                        Toast.makeText(getActivity(), "Pick-up time should be at least 2 hrs ahead.", Toast.LENGTH_LONG).show();
+//
+//                        pictime.setText("");
+//                    }
+//                    else {
+                        Toast.makeText(getActivity(), "Pick-up time should be at least 2 hrs ahead.", Toast.LENGTH_LONG).show();
+
+                        pictime.setText("");
+//                    }
 
 
-                    Toast.makeText(getActivity(), "Pick-up time should be at least 2 hrs ahead.", Toast.LENGTH_LONG).show();
 
-                    pictime.setText("");
 
                 } else {
 
@@ -597,14 +719,27 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                     /*Calendar calendar = Calendar.getInstance();
                     calendar.set(0, 0, 0, hourOfDay, minute);
                     pictime.setText((String) DateFormat.format("hh:mm aaa", calendar));
-*/
 
-                    pictime.setText(String.valueOf(hourOfDay) + ":" + String.valueOf(minute) + ":" + "00");
+//*/
+                    String min_str="";
+                 //   Log.e("MIN LOG",""+minute);
+
+                    if(minute<10)
+                    {
+                        min_str= "0"+minute;
+                    }
+                    else {
+                        min_str= String.valueOf(minute);
+                    }
+
+                    pictime.setText(String.valueOf(hourOfDay) + ":" + min_str + ":" + "00");
 
 
 
                 }
-            } else {
+            }
+
+            else {
 
 
                 /*Calendar calendar = Calendar.getInstance();
@@ -612,9 +747,18 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                 pictime.setText((String) DateFormat.format("hh:mm aaa", calendar));
 */
 
+                String min_str="";
+               // Log.e("MIN LOG",""+minute);
 
+                if(minute<10)
+                {
+                    min_str= "0"+minute;
+                }
+                else {
+                    min_str= String.valueOf(minute);
+                }
 
-                 pictime.setText(String.valueOf(hourOfDay) + ":" + String.valueOf(minute) + ":" + "00");
+                pictime.setText(String.valueOf(hourOfDay) + ":" + min_str + ":" + "00");
 
 
             }
@@ -656,20 +800,21 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
     private void Order() {
 
 
-
-
-
         // Toast.makeText(getActivity(), " HI 1S", Toast.LENGTH_SHORT).show();
 
         RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RetrfitInterface.url).build();
 
         try {
-            loading = new ProgressDialog(Order.this);
-            loading.setMessage("Please Wait Loading data ....");
-            loading.show();
-            loading.setCancelable(false);
+            loadingView = new Custom_ProgressDialog(Order.this, "");
+            loadingView.setCancelable(false);
+            loadingView.show();
+//            loading = new ProgressDialog(Order.this);
+//            loading.setMessage("Please Wait Loading data ....");
+//            loading.show();
+//            loading.setCancelable(false);
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
 
         }
 
@@ -700,7 +845,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                 }
 
 
-                loading.dismiss();
+                loadingView.dismiss();
 
                 if (status.equals("1")) {
 
@@ -722,6 +867,8 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
                     LinearLayout confirm_l = (LinearLayout) dialog.findViewById(R.id.confirm_l);
                     final RadioGroup radioGroup = (RadioGroup) dialog.findViewById(R.id.radGroup);
+                    final MyRadioButton afterradio = (MyRadioButton) dialog.findViewById(R.id.aftertraval);
+                    final MyRadioButton beforeradio = (MyRadioButton) dialog.findViewById(R.id.online);
 
                     confirm_l.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -733,7 +880,13 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                             RadioButton radioSexButton = (RadioButton) dialog.findViewById(selectedId);
 
 
-                            if (radioSexButton.getText().toString().equalsIgnoreCase("Pay to Driver")) {
+                            if(!afterradio.isChecked() && !beforeradio.isChecked())
+                            {
+                                Toast.makeText(getApplicationContext(), "Please Select Any One Payment Method", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                           else if (radioSexButton.getText().toString().equalsIgnoreCase("Pay to Driver")) {
                                 dialog.dismiss();
 
 
@@ -787,7 +940,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
 
                 String merror = error.toString();
 
-                loading.dismiss();
+                loadingView.dismiss();
             }
         });
 
@@ -982,7 +1135,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
             }
 
             //Lets take first possibility from the all possibilities.
-            android.location.Address location = address.get(0);
+            Address location = address.get(0);
 
             if (strAddress.equalsIgnoreCase("Ahmedabad")) {
 
@@ -1029,7 +1182,7 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
                 return;
             }
 
-            android.location.Address location = address.get(0);
+            Address location = address.get(0);
 
             if (strAddress.equalsIgnoreCase("Ahmedabad")) {
 
@@ -1058,6 +1211,98 @@ public class Order extends AppCompatActivity implements GoogleApiClient.Connecti
             e.printStackTrace();
         }
     }
+
+    private void openAutocompleteActivity() {
+        try {
+            // The autocomplete activity requires Google Play Services to be available. The intent
+            // builder checks this and throws an exception if it is not the case.
+            AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
+                    .setCountry("IN")
+                    .build();
+
+            Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
+                    .setFilter(typeFilter)
+                    .build(this);
+            startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
+        } catch (GooglePlayServicesRepairableException e) {
+            // Indicates that Google Play Services is either not installed or not up to date. Prompt
+            // the user to correct the issue.
+            GoogleApiAvailability.getInstance().getErrorDialog(this, e.getConnectionStatusCode(),
+                    0 /* requestCode */).show();
+        } catch (GooglePlayServicesNotAvailableException e) {
+            // Indicates that Google Play Services is not available and the problem is not easily
+            // resolvable.
+            String message = "Google Play Services is not available: " +
+                    GoogleApiAvailability.getInstance().getErrorString(e.errorCode);
+
+            // Log.e(TAG, message);
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Called after the autocomplete activity has finished to return its result.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Check that the result was from the autocomplete widget.
+        if (requestCode == REQUEST_CODE_AUTOCOMPLETE) {
+
+            if (resultCode == RESULT_OK) {
+                // Get the user's selected place from the Intent.
+                Place place = PlaceAutocomplete.getPlace(this, data);
+                // Log.i(TAG, "Place Selected: " + place.getName());
+
+                // Format the place's details and display them in the TextView.
+
+
+                String getAddress = place.getAddress().toString().trim();
+
+                Log.e("getAddress" , getAddress);
+
+                if(prefs.isFromPlaced()==true){
+
+                    pic.setText(getAddress);
+                    prefs.setFromPlaced(false);
+
+                }
+
+                if(prefs.isToPlaced()==true){
+
+                    drop.setText(getAddress);
+                    prefs.setToPlaced(false);
+
+
+                }
+
+
+                /*pic.setText(formatPlaceDetails(getResources(), place.getName(),
+                        place.getId(), place.getAddress(), place.getPhoneNumber(),
+                        place.getWebsiteUri()));
+*/
+
+
+
+
+                // Display attributions if required.
+                /*CharSequence attributions = place.getAttributions();
+                if (!TextUtils.isEmpty(attributions)) {
+                    pic.setText(Html.fromHtml(attributions.toString()));
+                } else {
+                    pic.setText("");
+                }*/
+            } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
+                Status status = PlaceAutocomplete.getStatus(this, data);
+                //   Log.e(TAG, "Error: Status = " + status.toString());
+            } else if (resultCode == RESULT_CANCELED) {
+                // Indicates that the activity closed before a selection was made. For example if
+                // the user pressed the back button.
+            }
+        }
+    }
+
 
 
 }

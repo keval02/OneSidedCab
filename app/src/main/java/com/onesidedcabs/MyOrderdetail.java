@@ -51,6 +51,7 @@ public class MyOrderdetail extends AppCompatActivity {
     JSONObject jObj;
     String status;
     private ProgressDialog loading;
+    private Custom_ProgressDialog loadingView;
 
     Date time1, time2;
 
@@ -117,9 +118,9 @@ public class MyOrderdetail extends AppCompatActivity {
         Double tollTax = Double.parseDouble(order_history.getOrderhistory().get(k).getToll_tax());
         res23 = amount + amount1+tollTax;
 
-        price.setText("Total Ride Amount: Rs. " + res23);
+        price.setText("Total Ride Amount: \u20B9 " + res23);
         ride.setText(order_history.getOrderhistory().get(k).getOcity() + " to " + order_history.getOrderhistory().get(k).getDcity());
-        price_text.setText("Rs. " + order_history.getOrderhistory().get(k).getOprice() + "\n" + " + GST rate (5.0 %) : Rs. " + order_history.getOrderhistory().get(k).getTaxprice() + "\n" + " + Toll tax : Rs. " + order_history.getOrderhistory().get(k).getToll_tax());
+        price_text.setText("\u20B9 " + order_history.getOrderhistory().get(k).getOprice() + "\n" + " + GST rate (5.0 %) : \u20B9 " + order_history.getOrderhistory().get(k).getTaxprice() + "\n" + " + Toll tax : \u20B9 " + order_history.getOrderhistory().get(k).getToll_tax());
 
         name = (EditText) findViewById(R.id.name);
         name.setTypeface(custom_font);
@@ -223,10 +224,13 @@ public class MyOrderdetail extends AppCompatActivity {
         RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RetrfitInterface.url).build();
 
         try {
-            loading = new ProgressDialog(MyOrderdetail.this);
-            loading.setMessage("Please Wait Loading data ....");
-            loading.show();
-            loading.setCancelable(false);
+            loadingView = new Custom_ProgressDialog(MyOrderdetail.this, "");
+            loadingView.setCancelable(false);
+            loadingView.show();
+//            loading = new ProgressDialog(MyOrderdetail.this);
+//            loading.setMessage("Please Wait Loading data ....");
+//            loading.show();
+//            loading.setCancelable(false);
 
         } catch (Exception e) {
 
@@ -267,7 +271,7 @@ public class MyOrderdetail extends AppCompatActivity {
                 }
 
 
-                loading.dismiss();
+                loadingView.dismiss();
 
                 if (status.equals("1")) {
 
@@ -277,7 +281,8 @@ public class MyOrderdetail extends AppCompatActivity {
                     startActivity(intent);
 
 
-                } else {
+                } else
+                    {
                     Toast.makeText(MyOrderdetail.this, " No Cab Available ", Toast.LENGTH_SHORT).show();
                 }
 
@@ -288,7 +293,7 @@ public class MyOrderdetail extends AppCompatActivity {
 
                 String merror = error.toString();
                 Log.d("error", merror);
-                loading.dismiss();
+                loadingView.dismiss();
             }
         });
 

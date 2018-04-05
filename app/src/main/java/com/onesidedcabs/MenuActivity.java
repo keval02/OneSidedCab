@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.onesidedcabs.residemenu.ResideMenu;
 import com.onesidedcabs.residemenu.ResideMenuItem;
 
@@ -30,6 +31,7 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
         mContext = this;
         setUpMenu();
         if( savedInstanceState == null )
@@ -92,7 +94,6 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         }else if (view == itemSettings){
             changeFragment(new SettingsFragment());
         }
-
         resideMenu.closeMenu();
     }
 

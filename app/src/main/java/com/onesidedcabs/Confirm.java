@@ -49,6 +49,7 @@ public class Confirm extends AppCompatActivity {
     JSONObject jObj;
     String status;
     private ProgressDialog loading;
+    private Custom_ProgressDialog loadingView;
     String car_type;
 
     @Override
@@ -125,7 +126,7 @@ public class Confirm extends AppCompatActivity {
         ride = (TextView) findViewById(R.id.ride);
 
 
-        price.setText("Total Ride Amount: Rs. "+ PrefUtils.getbook_price(Confirm.this));
+        price.setText("Total Ride Amount: \u20B9 "+ PrefUtils.getbook_price(Confirm.this));
 
         ride.setText(PrefUtils.getCity_name(Confirm.this)+" to "+PrefUtils.getend_poi(Confirm.this));
 
@@ -158,14 +159,14 @@ public class Confirm extends AppCompatActivity {
 
         if(finalTollTax.equals(0.0)){
 
-            price_text.setText("Rs. "+PrefUtils.getd_price1(Confirm.this) + "\n"+" + GST rate (5.0 %) : Rs. "+PrefUtils.getbook_tex(Confirm.this));
+            price_text.setText("\u20B9 "+PrefUtils.getd_price1(Confirm.this) + "\n"+" + GST rate (5.0 %) : \u20B9 "+PrefUtils.getbook_tex(Confirm.this));
 
 
 
         }else {
 
 
-            price_text.setText("Rs. "+PrefUtils.getd_price1(Confirm.this) + "\n"+" + GST rate (5.0 %) : Rs. "+PrefUtils.getbook_tex(Confirm.this) + "\n" + " + Toll tax : Rs. " + PrefUtils.gettollPrice(Confirm.this));
+            price_text.setText("\u20B9 "+PrefUtils.getd_price1(Confirm.this) + "\n"+" + GST rate (5.0 %) : \u20B9 "+PrefUtils.getbook_tex(Confirm.this) + "\n" + " + Toll tax : \u20B9 " + PrefUtils.gettollPrice(Confirm.this));
 
 
         }
@@ -210,10 +211,13 @@ public class Confirm extends AppCompatActivity {
         RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RetrfitInterface.url).build();
 
         try {
-            loading = new ProgressDialog(Confirm.this);
-            loading.setMessage("Please Wait Loading data ....");
-            loading.show();
-            loading.setCancelable(false);
+            loadingView = new Custom_ProgressDialog(Confirm.this, "");
+            loadingView.setCancelable(false);
+            loadingView.show();
+//            loading = new ProgressDialog(Confirm.this);
+//            loading.setMessage("Please Wait Loading data ....");
+//            loading.show();
+//            loading.setCancelable(false);
 
         } catch (Exception e) {
 
@@ -256,7 +260,7 @@ public class Confirm extends AppCompatActivity {
                 }
 
 
-                loading.dismiss();
+                loadingView.dismiss();
 
                 if(status.equals("1")) {
 
@@ -276,7 +280,7 @@ public class Confirm extends AppCompatActivity {
 
                 String merror = error.toString();
                 Log.d("error", merror);
-                loading.dismiss();
+                loadingView.dismiss();
             }
         });
 

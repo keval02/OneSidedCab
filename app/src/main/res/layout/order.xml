@@ -191,7 +191,8 @@
                 android:textSize="@dimen/textsub_size"
                 android:textColor="@color/textt"
                 android:singleLine="true"
-                android:inputType="text"
+                android:inputType="number"
+                android:maxLength="10"
                 android:background="#ffffff"
                 android:textColorHint="@color/blacktext"
                 android:paddingTop="10dp"/>
@@ -276,7 +277,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/pic_date"
-                        android:orientation="horizontal"></LinearLayout>
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
 
                 </FrameLayout>
 
@@ -380,6 +383,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:gravity="center_vertical"
                     android:id="@+id/pic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -389,6 +393,7 @@
                     android:hint="PICK UP FROM "
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
+
                     android:singleLine="true"
                     android:textColor="@color/textt"
                     android:textColorHint="@color/blacktext"
@@ -398,11 +403,12 @@
             </android.support.design.widget.TextInputLayout>
 
                     <ImageView
+                        android:id="@+id/pic_image"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/gpss"
+                        android:src="@drawable/icons_green"
                         android:layout_marginRight="20dp"
-                        android:visibility="gone"/>
+                        android:visibility="visible"/>
                     </LinearLayout>
 
                 <View
@@ -457,11 +463,13 @@
 
                         <TextView
                             android:layout_gravity="center"
+                            android:gravity="center_vertical"
                             android:id="@+id/drop"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="DROP OFF AT "
                             android:textSize="@dimen/textsub_size"
+
                             android:textColor="@color/textt"
                             android:singleLine="true"
                             android:layout_marginRight="10dp"
@@ -477,11 +485,12 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <ImageView
+                        android:id="@+id/drop_image"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/gpss"
+                        android:src="@drawable/icons_green"
                         android:layout_marginRight="20dp"
-                        android:visibility="gone"/>
+                        android:visibility="visible"/>
 
                 </LinearLayout>
 
